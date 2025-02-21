@@ -322,9 +322,28 @@ const searchByTitle = function (movies, word) {
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+const searchAndDivide = function (movies, word) {
+  let match = [];
+  let unmatch = [];
+
+  movies.forEach((movie) => {
+    if (movie.Title.includes(word)) {
+      match.push(movie);
+    } else {
+      unmatch.push(movie);
+    }
+  });
+
+  return { match, unmatch };
+};
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+const removeIndex = function (number, movies) {
+  return movies.slice(0, number).concat(movies.slice(number + 1));
+};
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -565,3 +584,5 @@ console.log(onlyTheYears(movies));
 console.log(onlyInLastMillennium(movies));
 console.log(sumAllTheYears(movies));
 console.log(searchByTitle(movies, "Lord"));
+console.log(searchAndDivide(movies, "Avengers"));
+console.log(removeIndex(5, movies));
