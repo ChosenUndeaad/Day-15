@@ -305,6 +305,10 @@ const onlyInLastMillennium = function (movies) {
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 
+const sumAllTheYears = function (movies) {
+  return movies.reduce((sum, movie) => sum + parseInt(movie.Year), 0);
+};
+
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
@@ -324,29 +328,82 @@ const onlyInLastMillennium = function (movies) {
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+const container = function () {
+  return document.getElementById("container");
+};
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+const getTd = function () {
+  return document.getElementsByTagName("td");
+};
+
+getTd();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+const printTag = function () {
+  let tds = document.getElementsByTagName("td");
+
+  for (let i = 0; i < tds.length; i++) {
+    console.log(tds[i].innerText);
+  }
+};
+
+printTag();
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+const redBackground = function () {
+  let links = document.getElementsByTagName("a");
+
+  for (i = 0; i < links.length; i++) {
+    links.style.backgroundColor(rgb(255, 0, 0));
+  }
+};
+
+redBackground();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const addListElement = function () {
+  let list = document.getElementsByTagName("ul");
+};
+
+addListElement();
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const emptyList = function () {
+  let list = document.getElementById("myList");
+  list.innerHTML("");
+};
+
+emptyList();
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const test = function () {
+  let trs = document.getElementsByTagName("tr");
+
+  for (i = 0; i < trs.length; i++) {
+    trs.classList.add("test");
+  }
+};
+
+test();
 
 // [EXTRA] JS Avanzato
 
@@ -500,3 +557,4 @@ console.log(newestMovie(movies));
 console.log(countMovies(movies));
 console.log(onlyTheYears(movies));
 console.log(onlyInLastMillennium(movies));
+console.log(sumAllTheYears(movies));
